@@ -17,13 +17,14 @@ export function BugDetails() {
 
     return <div className="bug-details">
         <h3>Bug Details</h3>
+        <hr />
         {!bug && <p className="loading">Loading....</p>}
         {
             bug &&
             <div>
-                <h4>Bug name: {bug.title}</h4>
+                <h4>{bug.title}</h4>
                 <h5>Severity: <span>{bug.severity}</span></h5>
-                <p>Description: {bug.description}</p>
+                <p>{bug.description}</p>
             </div>
         }
         <hr />

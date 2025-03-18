@@ -1,44 +1,36 @@
 [
     {
-        "_id": "PP317N",
-        "title": "Bug 1742317894885",
-        "description": "AHaha",
-        "severity": 2,
-        "createdAt": 1742317900191
+        "_id": "b101",
+        "title": "Page not loading",
+        "description": "Blank screen appears on load",
+        "severity": 0
     },
     {
-        "_id": "NjzIAk",
-        "title": "Bug 1742317868245",
-        "description": "null",
-        "severity": 0,
-        "createdAt": 1742317879067
-    },
-    {
-        "_id": "PR0ldy",
-        "title": "Bug 1742317839429",
-        "description": "null",
-        "severity": 0,
-        "createdAt": 1742317867006
-    },
-    {
-        "_id": "nEtSnP",
-        "title": "Bug 1742317813609",
-        "description": "NaN",
+        "_id": "b102",
+        "title": "Error on form submission",
+        "description": "Validation fails unexpectedly",
         "severity": 1,
-        "createdAt": 1742317820280
+        "createdAt": 1623107359454
     },
     {
-        "_id": "LMHeT2",
-        "title": "Bug 1742317800681",
-        "description": "undefined",
-        "severity": 0,
-        "createdAt": 1742317803399
-    },
-    {
-        "_id": "YtsrzQ",
-        "title": "Bug 1742317732719",
-        "description": "undefined",
+        "_id": "b103",
+        "title": "UI elements misaligned",
+        "description": "Buttons are not centered",
         "severity": 3,
-        "createdAt": 1742317735324
+        "createdAt": 1601107359454
+    },
+    {
+        "_id": "b104",
+        "title": "Cannot save user settings",
+        "description": "Changes do not persist after refresh",
+        "severity": 4,
+        "createdAt": 1654107359454
+    },
+    {
+        "_id": "b105",
+        "title": "Slow response time",
+        "description": "API calls take too long to respond",
+        "severity": 5,
+        "createdAt": 1592107359454
     }
 ]
