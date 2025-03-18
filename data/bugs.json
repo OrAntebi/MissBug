@@ -1,0 +1,44 @@
+[
+    {
+        "_id": "PP317N",
+        "title": "Bug 1742317894885",
+        "description": "AHaha",
+        "severity": 2,
+        "createdAt": 1742317900191
+    },
+    {
+        "_id": "NjzIAk",
+        "title": "Bug 1742317868245",
+        "description": "null",
+        "severity": 0,
+        "createdAt": 1742317879067
+    },
+    {
+        "_id": "PR0ldy",
+        "title": "Bug 1742317839429",
+        "description": "null",
+        "severity": 0,
+        "createdAt": 1742317867006
+    },
+    {
+        "_id": "nEtSnP",
+        "title": "Bug 1742317813609",
+        "description": "NaN",
+        "severity": 1,
+        "createdAt": 1742317820280
+    },
+    {
+        "_id": "LMHeT2",
+        "title": "Bug 1742317800681",
+        "description": "undefined",
+        "severity": 0,
+        "createdAt": 1742317803399
+    },
+    {
+        "_id": "YtsrzQ",
+        "title": "Bug 1742317732719",
+        "description": "undefined",
+        "severity": 3,
+        "createdAt": 1742317735324
+    }
+]

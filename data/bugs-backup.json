@@ -1,0 +1,37 @@
+[
+    {
+        "_id": "b101",
+        "title": "Page not loading",
+        "description": "Blank screen appears on load",
+        "severity": 2,
+        "createdAt": 1642107359454
+    },
+    {
+        "_id": "b102",
+        "title": "Error on form submission",
+        "description": "Validation fails unexpectedly",
+        "severity": 1,
+        "createdAt": 1623107359454
+    },
+    {
+        "_id": "b103",
+        "title": "UI elements misaligned",
+        "description": "Buttons are not centered",
+        "severity": 3,
+        "createdAt": 1601107359454
+    },
+    {
+        "_id": "b104",
+        "title": "Cannot save user settings",
+        "description": "Changes do not persist after refresh",
+        "severity": 4,
+        "createdAt": 1654107359454
+    },
+    {
+        "_id": "b105",
+        "title": "Slow response time",
+        "description": "API calls take too long to respond",
+        "severity": 5,
+        "createdAt": 1592107359454
+    }
+]

@@ -1,9 +1,18 @@
+import fs from 'fs'
+
 export const utilService = {
+    readJsonFile,
     makeId,
     makeLorem,
     getRandomIntInclusive,
     loadFromStorage,
     saveToStorage
+}
+
+function readJsonFile(path) {
+    const str = fs.readFileSync(path, 'utf8')
+    const json = JSON.parse(str)
+    return json
 }
 
 function makeId(length = 6) {
