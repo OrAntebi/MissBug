@@ -36,21 +36,14 @@ app.get('/api/bug/save', (req, res) => {
 
 app.get('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
-    let visitedBugs = req.cookies.visitedBugs ? JSON.parse(req.cookies.visitedBugs) : []
+    const { visitCountMap = [] } = req.cookies
 
-    const uniqueBugIds = new Set(visitedBugs.map(bug => bug.id))
-    if (uniqueBugIds.size >= 3 && !uniqueBugIds.has(bugId)) {
-        return res.status(401).send('Cannot view more than 3 unique bugs, try again later.')
-    }
+    if (visitCountMap.length >= 3) return res.status(401).send('Wait for a bit')
+    if (visitCountMap.inCludes(bugId)) visitCountMap.push(bugId)
 
+    res.cookie('visitCountMap', visitCountMap, { maxAge: 1000 * 10 })
     bugService.getById(bugId)
-        .then(bug => {
-            if (!uniqueBugIds.has(bugId)) {
-                visitedBugs.push({ id: bugId, timestamp: Date.now() })
-            }
-            res.cookie('visitedBugs', JSON.stringify(visitedBugs), { maxAge: 7 * 1000 })
-            res.send(bug)
-        })
+        .then(bug => res.send(bug))
         .catch(err => {
             loggerService.error('Cannot get bug', err)
             res.status(500).send('Cannot load bug')

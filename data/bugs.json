@@ -3,7 +3,8 @@
         "_id": "b101",
         "title": "Page not loading",
         "description": "Blank screen appears on load",
-        "severity": 0
+        "severity": 2,
+        "createdAt": 1642107359454
     },
     {
         "_id": "b102",

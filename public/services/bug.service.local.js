@@ -27,11 +27,14 @@ function query(filterBy) {
 }
 
 function getById(bugId) {
-    return axios.get(BASE_URL + bugId).then(res => res.data)
+    const url = BASE_URL + bugId
+    return axios.get(url)
+        .then(res => res.data)
 }
 
 function remove(bugId) {
-    return axios.get(BASE_URL + bugId + '/remove').then(res => res.data)
+    const url = BASE_URL + bugId + '/remove'
+    return axios.get(url)
 }
 
 function save(bug) {
