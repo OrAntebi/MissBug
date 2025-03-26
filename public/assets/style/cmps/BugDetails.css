@@ -1,12 +1,33 @@
+.bug-details h4 {
+    margin: 1em 0;
+    font-size: 1.2em;
+}
+
 .bug-details h5 {
     margin: 1em 0;
     font-size: 1.1em;
 }
 
-.bug-details h5 span{
+.bug-details h5 span {
     color: red;
 }
 
 .bug-details hr {
     margin: 1em 0;
+}
+
+.bug-details .labels-container {
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+
+    margin: 1em 0;
+    
+    .label {
+        font-size: .8em;
+        padding: .2em .5em;
+        border-radius: .5em;
+        background-color: rgb(157, 255, 111);
+        color: black;
+    }
 }

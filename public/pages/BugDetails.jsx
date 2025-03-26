@@ -1,7 +1,7 @@
 const { useState, useEffect } = React
 const { Link, useParams } = ReactRouterDOM
 
-import { bugService } from '../services/bug.service.local.js'
+import { bugService } from '../services/bug.service.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function BugDetails() {
@@ -25,6 +25,14 @@ export function BugDetails() {
                 <h4>{bug.title}</h4>
                 <h5>Severity: <span>{bug.severity}</span></h5>
                 <p>{bug.description}</p>
+                <section className="labels-container">
+                    {bug.labels
+                        .filter(label => label.trim())
+                        .map((label, idx) => (
+                            <span key={idx} className="label">{label}</span>
+                        ))
+                    }
+                </section>
             </div>
         }
         <hr />

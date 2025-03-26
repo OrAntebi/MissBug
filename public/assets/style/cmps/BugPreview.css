@@ -10,6 +10,19 @@
 }
 
 .bug-preview span {
-    margin-inline-start: .5em;
     font-size: .9em;
+}
+
+.bug-preview .labels-container {
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+
+    .label {
+        font-size: .8em;
+        padding: .2em .5em;
+        border-radius: .5em;
+        background-color: rgb(157, 255, 111);
+        color: black;
+    }
 }
