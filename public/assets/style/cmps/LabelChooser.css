@@ -1,0 +1,12 @@
+.label-chooser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .2em;
+
+    legend {
+        font-size: 1em;
+        font-weight: 600;
+        margin-left: .5em;
+    }
+}

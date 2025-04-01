@@ -63,17 +63,33 @@ export function BugIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
     }
 
+    function onSetPage(diff) {
+        console.log('filterBy', filterBy)
+        setFilterBy(prevFilter => (
+            console.log('prevFilter', prevFilter),
+            { ...prevFilter, pageIdx: prevFilter.pageIdx + diff }
+        ))
+    }
+
     return <section className="bug-index main-content">
-        
+
         <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
         <header>
             <h3>Bug List</h3>
             <button onClick={onAddBug}>Add Bug</button>
         </header>
-        
-        <BugList 
-            bugs={bugs} 
-            onRemoveBug={onRemoveBug} 
-            onEditBug={onEditBug} />
+
+        <BugList
+            bugs={bugs}
+            onRemoveBug={onRemoveBug}
+            onEditBug={onEditBug}
+        />
+
+        {bugs && <div className="pagination">
+            <button onClick={() => onSetPage(-1)} disabled={filterBy.pageIdx === 0}>Prev</button>
+            <span>Page: {filterBy.pageIdx + 1}</span>
+            <button onClick={() => onSetPage(1)}>Next</button>
+        </div>}
+
     </section>
 }

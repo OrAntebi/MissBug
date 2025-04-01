@@ -1,0 +1,106 @@
+[
+  {
+    "_id": "b102",
+    "title": "Error on form submission",
+    "description": "Validation fails unexpectedly",
+    "severity": 1,
+    "createdAt": 1623107359454,
+    "labels": [
+      "back",
+      "critical",
+      "in progress"
+    ]
+  },
+  {
+    "_id": "b103",
+    "title": "UI elements misaligned",
+    "description": "Buttons are not centered",
+    "severity": 3,
+    "createdAt": 1601107359454,
+    "labels": [
+      "front",
+      "fixed"
+    ]
+  },
+  {
+    "_id": "b104",
+    "title": "Cannot save user settings",
+    "description": "Changes do not persist after refresh",
+    "severity": 4,
+    "createdAt": 1654107359454,
+    "labels": [
+      "back",
+      "critical",
+      "in progress"
+    ]
+  },
+  {
+    "_id": "b105",
+    "title": "Slow response time",
+    "description": "API calls take too long to respond",
+    "severity": 5,
+    "createdAt": 1592107359454,
+    "labels": [
+      "back",
+      "stuck"
+    ]
+  },
+  {
+    "_id": "b106",
+    "title": "Broken navigation links",
+    "description": "Clicking on menu items does nothing",
+    "severity": 2,
+    "createdAt": 1673107359454,
+    "labels": [
+      "front",
+      "critical",
+      "in progress"
+    ]
+  },
+  {
+    "_id": "b107",
+    "title": "Session timeout too short",
+    "description": "Users get logged out within minutes",
+    "severity": 3,
+    "createdAt": 1612107359454,
+    "labels": [
+      "back",
+      "stuck"
+    ]
+  },
+  {
+    "_id": "b108",
+    "title": "Images not loading",
+    "description": "Product images fail to appear",
+    "severity": 4,
+    "createdAt": 1665107359454,
+    "labels": [
+      "front",
+      "critical",
+      "stuck"
+    ]
+  },
+  {
+    "_id": "b109",
+    "title": "Cart items disappearing",
+    "description": "Items added to cart randomly vanish",
+    "severity": 1,
+    "createdAt": 1682107359454,
+    "labels": [
+      "back",
+      "critical",
+      "in progress"
+    ]
+  },
+  {
+    "_id": "b110",
+    "title": "Search function returns incorrect results",
+    "description": "Searching for items shows unrelated results",
+    "severity": 2,
+    "createdAt": 1634107359454,
+    "labels": [
+      "back",
+      "fixed"
+    ]
+  }
+]

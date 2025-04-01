@@ -4,54 +4,44 @@ import { bugService } from './services/bug.service.js'
 import { loggerService } from './public/services/logger.service.js'
 const app = express()
 
+// App Configuration
 app.use(express.static('public'))
 app.use(cookieParser())
 app.use(express.json())
 
-
+// Get all bugs
 app.get('/api/bug', (req, res) => {
-    const filterBy = {
-        txt: req.query.txt || '',
-        minSeverity: +req.query.minSeverity || 0,
-        labels: req.query.labels || ''
-    }
+    const queryOptions = parseQueryParams(req.query)
 
-    bugService.query(filterBy)
+    bugService.query(queryOptions)
         .then((bugs => res.send(bugs)))
         .catch(err => {
-            loggerService.error('Cannot get bugs', err)
+            loggerService.error('Cannot load bugs', err)
             res.status(500).send('Cannot load bugs')
         })
 })
 
-app.post('/api/bug', (req, res) => {
-    const bugToSave = req.body
+function parseQueryParams(queryParams) {
+    const filterBy = {
+        txt: queryParams.txt || '',
+        minSeverity: +queryParams.minSeverity || 0,
+        labels: queryParams.labels || [],
+    }
 
-    bugService.save(bugToSave)
-        .then(bug => {
-            loggerService.info(`Bug ${bug._id} saved successfully`)
-            res.send(bug)
-        })
-        .catch(err => {
-            loggerService.error('Cannot save bug', err)
-            res.status(500).send('Cannot save bug')
-        })
-})
+    const sortBy = {
+        sortField: queryParams.sortField || '',
+        sortDir: +queryParams.sortDir || 1,
+    }
+    
+    const pagination = {
+        pageIdx: queryParams.pageIdx !== undefined ? +queryParams.pageIdx : 0,
+        pageSize: +queryParams.pageSize || 4,
+    }
+    
+    return { filterBy, sortBy, pagination }
+}
 
-app.put('/api/bug/:bugId', (req, res) => {
-    const bugToSave = req.body
-
-    bugService.save(bugToSave)
-        .then(bug => {
-            loggerService.info(`Bug ${bug._id} updated successfully`)
-            res.send(bug)
-        })
-        .catch(err => {
-            loggerService.error('Cannot update bug', err)
-            res.status(500).send('Cannot update bug')
-        })
-})
-
+// Get bug by ID
 app.get('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
     const { visitCountMap = [] } = req.cookies
@@ -71,6 +61,37 @@ app.get('/api/bug/:bugId', (req, res) => {
         })
 })
 
+// Create a new bug
+app.post('/api/bug', (req, res) => {
+    const bugToSave = req.body
+
+    bugService.save(bugToSave)
+        .then(bug => {
+            loggerService.info(`Bug ${bug._id} saved successfully`)
+            res.send(bug)
+        })
+        .catch(err => {
+            loggerService.error('Cannot save bug', err)
+            res.status(500).send('Cannot save bug')
+        })
+})
+
+// Update bug
+app.put('/api/bug/:bugId', (req, res) => {
+    const bugToSave = req.body
+
+    bugService.save(bugToSave)
+        .then(bug => {
+            loggerService.info(`Bug ${bug._id} updated successfully`)
+            res.send(bug)
+        })
+        .catch(err => {
+            loggerService.error('Cannot update bug', err)
+            res.status(500).send('Cannot update bug')
+        })
+})
+
+// Delete bug
 app.delete('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
 

@@ -11,3 +11,13 @@
     margin-inline-start: 1em;
 }
 
+.bug-filter .sort-by {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.bug-filter .sort-field,
+.bug-filter .sort-dir {
+    margin-block: .6em;
+}
