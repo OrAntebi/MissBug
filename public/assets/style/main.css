@@ -6,6 +6,8 @@
 @import './cmps/Home.css';
 @import './cmps/AboutUs.css';
 @import './cmps/BugIndex.css';
+@import './cmps/LoginSignup.css';
+@import './cmps/UserDetails.css';
 @import './cmps/BugDetails.css';
 
 @import './cmps/AppHeader.css';

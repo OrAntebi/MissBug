@@ -1,5 +1,7 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import { authService } from './services/auth.service.js'
+import { userService } from './services/user.service.js'
 import { bugService } from './services/bug.service.js'
 import { loggerService } from './public/services/logger.service.js'
 const app = express()
@@ -32,12 +34,12 @@ function parseQueryParams(queryParams) {
         sortField: queryParams.sortField || '',
         sortDir: +queryParams.sortDir || 1,
     }
-    
+
     const pagination = {
         pageIdx: queryParams.pageIdx !== undefined ? +queryParams.pageIdx : 0,
         pageSize: +queryParams.pageSize || 4,
     }
-    
+
     return { filterBy, sortBy, pagination }
 }
 
@@ -104,6 +106,63 @@ app.delete('/api/bug/:bugId', (req, res) => {
             loggerService.error('Cannot remove bug', err)
             res.status(500).send('Cannot remove bug')
         })
+})
+
+// User API
+app.get('/api/user', (req, res) => {
+    userService.query()
+        .then(users => res.send(users))
+        .catch(err => {
+            loggerService.error('Cannot load users', err)
+            res.status(400).send('Cannot load users')
+        })
+})
+
+app.get('/api/user/:userId', (req, res) => {
+    const { userId } = req.params
+
+    userService.getById(userId)
+        .then(user => res.send(user))
+        .catch(err => {
+            loggerService.error('Cannot load user', err)
+            res.status(400).send('Cannot load user')
+        })
+})
+
+// Auth API
+app.post('/api/auth/signup', (req, res) => {
+    const credentials = req.body
+
+    userService.add(credentials)
+        .then(user => {
+            if (user) {
+                const loginToken = authService.getLoginToken(user)
+                res.cookie('loginToken', loginToken)
+                res.send(user)
+            } else {
+                res.status(400).send('Cannot signup')
+            }
+        })
+        .catch(() => res.status(400).send('Username taken.'))
+})
+
+app.post('/api/auth/login', (req, res) => {
+    const credentials = req.body
+
+    authService.checkLogin(credentials)
+        .then(user => {
+            console.log('user', user)
+            const loginToken = authService.getLoginToken(user)
+            res.cookie('loginToken', loginToken)
+            res.send(user)
+        })
+        .catch(() => res.status(404).send('Invalid Credentials'))
+})
+
+
+app.post('/api/auth/logout', (req, res) => {
+    res.clearCookie('loginToken')
+    res.send('logged-out!')
 })
 
 app.listen(3031, () => loggerService.info('Server ready at port 3031'))

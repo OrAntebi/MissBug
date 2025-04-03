@@ -1,4 +1,5 @@
 import Cryptr from 'cryptr'
+import 'dotenv/config'
 import { userService } from './user.service.js'
 
 const cryptr = new Cryptr(process.env.SECRET_KEY)
@@ -6,7 +7,7 @@ const cryptr = new Cryptr(process.env.SECRET_KEY)
 export const authService = {
     checkLogin,
     getLoginToken,
-    validateToken,
+    validateToken
 }
 
 function checkLogin({ username, password }) {
