@@ -1,0 +1,30 @@
+[
+    {
+        "_id": "u201",
+        "username": "zaza",
+        "fullname": "Zaza Zee",
+        "password": "secret3",
+        "score": 150,
+        "isAdmin": false
+    },
+    {
+        "_id": "u202",
+        "username": "lolo",
+        "fullname": "Lolo Li",
+        "password": "pass123",
+        "score": 85
+    },
+    {
+        "_id": "u203",
+        "username": "nini",
+        "fullname": "Nini No",
+        "password": "nini",
+        "isAdmin": true
+    },
+    {
+        "_id": "u204",
+        "username": "bibi",
+        "fullname": "Bibi Bo",
+        "password": "bibi123"
+    }
+]

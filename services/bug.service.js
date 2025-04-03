@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { utilService } from "../public/services/util.service.js"
+import { utilService } from "./util.service.js"
 import { loggerService } from '../public/services/logger.service.js'
 
 export const bugService = {
